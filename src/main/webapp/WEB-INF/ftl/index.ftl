@@ -80,11 +80,16 @@ $(function(){
 	ids.push({ "targets": [index++], "title": "<input type='checkbox'></input>", "data":"_id","width": "1","orderable": false,"render": function ( data, type, full, meta ) {
 		return '<input type="checkbox" name="checkboxlist" value='+data+'></input>';
 	}});
-	ids.push({ "targets": [index++], "title": "PatientName", "data":"00100010.Value[0].Alphabetic", "orderable": false});
-	ids.push({ "targets": [index++], "title": "PatientID", "data":"00100020.Value[0]", "orderable": false});
-	ids.push({ "targets": [index++], "title": "StudyDate", "data":"00080020.Value[0]", "orderable": false});
-	ids.push({ "targets": [index++], "title": "StudyDescription", "data":"00081030.Value[0]", "orderable": false});
-	ids.push({ "targets": [index++], "title": "操作", "data":"id", "width": "20%","orderable": false, "render": function ( data, type, full, meta ) {
+	ids.push({ "targets": [index++], "title": "PatientName", "data":"patientName", "orderable": false});
+	ids.push({ "targets": [index++], "title": "PatientID", "data":"patientID", "orderable": false});
+	ids.push({ "targets": [index++], "title": "patientSex", "data":"patientSex", "orderable": false});
+	ids.push({ "targets": [index++], "title": "patientBirthDate", "data":"patientBirthDate", "orderable": false});
+	ids.push({ "targets": [index++], "title": "institutionName", "data":"institutionName", "orderable": false});
+	ids.push({ "targets": [index++], "title": "accessionNumber", "data":"patientID", "orderable": false});
+	ids.push({ "targets": [index++], "title": "modality", "data":"modality", "orderable": false});
+	ids.push({ "targets": [index++], "title": "StudyDate", "data":"studyDate", "orderable": false});
+	ids.push({ "targets": [index++], "title": "StudyDescription", "data":"studyDescription", "orderable": false});
+	ids.push({ "targets": [index++], "title": "操作", "data":"id", "width": "5%","orderable": false, "render": function ( data, type, full, meta ) {
 		return '${accountStaffOperations}';
 						
 	}});

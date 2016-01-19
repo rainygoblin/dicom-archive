@@ -1,11 +1,10 @@
 package com.example.dicom.archive.service;
 
-import org.bson.Document;
-
 import com.example.dicom.archive.dto.DataTable;
+import com.example.dicom.archive.dto.StudyDto;
 
 public interface QueryDicomFileService {
 
-	DataTable<Document> query();
+	DataTable<StudyDto> query();
 
 }

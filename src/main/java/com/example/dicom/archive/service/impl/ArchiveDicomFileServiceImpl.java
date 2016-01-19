@@ -21,6 +21,7 @@ import com.mongodb.DB;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.Filters;
 import com.mongodb.gridfs.GridFS;
 import com.mongodb.gridfs.GridFSInputFile;
 
@@ -31,6 +32,7 @@ public class ArchiveDicomFileServiceImpl implements ArchiveDicomFileService {
 	@Autowired
 	private MongoClientProvider mongoClientProvider;
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public Map<String, String> upload(Map<String, MultipartFile> maps) {
 		final Map<String, String> result = new HashMap<>();
@@ -55,6 +57,14 @@ public class ArchiveDicomFileServiceImpl implements ArchiveDicomFileService {
 		try {
 			MultipartFile multipartFile = entry.getValue();
 			String hashValue = DigestUtils.md5Hex(multipartFile.getInputStream());
+			//query the id
+			MongoCollection<Document> requestCollection = testDatabase.getCollection("dicom");
+			long count= requestCollection.count(Filters.eq("_id", hashValue));
+			if(count > 0){
+				result.put(entry.getKey(), "Existing");
+				LOG.info("This document Existing");
+				return;
+			}
 			// save the file
 			LOG.info("Save the dicom file into the mongodb");
 			GridFS gridFS = new GridFS(archiveDB, "files");
@@ -75,7 +85,6 @@ public class ArchiveDicomFileServiceImpl implements ArchiveDicomFileService {
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();
 			DicomInputStream dis = new DicomInputStream(multipartFile.getInputStream());
 			dcm2Json.convert(dis, baos);
-			MongoCollection<Document> requestCollection = testDatabase.getCollection("dicom");
 			Document document = Document.parse(baos.toString());
 			document.put("_id", hashValue);
 			requestCollection.insertOne(document);
