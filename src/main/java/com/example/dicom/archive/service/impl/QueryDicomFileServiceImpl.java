@@ -42,12 +42,12 @@ public class QueryDicomFileServiceImpl implements QueryDicomFileService {
 
         long startTime = System.nanoTime();
         LOG.info("begin get document(name: dreamoftch, age > 25) >>>>>>");  
-        FindIterable<Document> documents= dicomCollection.find().projection(DicomObjectSimpleDto.includes).limit(10);
+        FindIterable<Document> documents= dicomCollection.find().projection(DicomObjectSimpleDto.includes);
         for (Document document :documents) {
         	addSop(studyTree,document);  
         }  
     	result.setData(studyTree.values());
-    	result.setRecordsTotal(10);
+    	result.setRecordsTotal(studyTree.size());
         LOG.info("finish get document(name: dreamoftch, age > 25) >>>>>>. cost:"+(System.nanoTime() - startTime)/1000000000.0);  
         
 		return result;

@@ -16,16 +16,16 @@
 <div class="container-fluid" style="background-color: #828282">
 	<div class="row">
 	    <div class="col-xs-3">
-   		    <label class="form-label col-1">订单号：</label>
-   		    <input type="text" name="" id="code" placeholder=" 订单号" style="width:120px" class="input-text f-l mr-10">
+   		    <label style="width:130px">PatientName：</label>
+   		    <input type="text" name="" id="code" placeholder=" PatientName" style="width:200px" >
 		</div>
 	    <div class="col-xs-3">
-   		    <label class="form-label col-1">订单号：</label>
-   		    <input type="text" name="" id="code" placeholder=" 订单号" style="width:120px" class="input-text f-l mr-10">
+   		    <label style="width:130px">PatientID：</label>
+   		    <input type="text" name="" id="code" placeholder=" PatientID" style="width:200px" >
 		</div>
 	    <div class="col-xs-3">
-   		    <label class="form-label col-1">订单号：</label>
-   		    <input type="text" name="" id="code" placeholder=" 订单号" style="width:120px" class="input-text f-l mr-10">
+   		    <label style="width:130px">patientSex：</label>
+   		    <input type="text" name="" id="code" placeholder=" patientSex" style="width:200px" >
 		</div>
 		<div class="col-xs-3">
 		    <label class="form-label col-1">订单状态：</label>
@@ -43,26 +43,21 @@
 	</div>
 	<div class="row">
 	    <div class="col-xs-3">
-		    <label class="form-label col-1">产品名称：</label>
-		    <input type="text" name="" id="productId" placeholder="产品名称" style="width:120px" class="input-text f-l mr-10">
+   		    <label style="width:130px">institutionName：</label>
+   		    <input type="text" name="" id="code" placeholder=" institutionName" style="width:200px" >
 		</div>
 	    <div class="col-xs-3">
-		    <label class="form-label col-1">游玩日期：</label>
-		    <input type="text" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd 00:00:00'})" class="input-text Wdate" id="usedTime" style="width:120px;">
+   		    <label style="width:130px">accessionNumber：</label>
+   		    <input type="text" name="" id="code" placeholder=" accessionNumber" style="width:200px" >
 		</div>
 	    <div class="col-xs-3">
-		    <label class="form-label col-1">游玩日期：</label>
-		    <input type="text" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd 00:00:00'})" class="input-text Wdate" id="usedTime" style="width:120px;">
+   		    <label style="width:130px">modality：</label>
+   		    <input type="text" name="" id="code" placeholder=" modality" style="width:200px" >
 		</div>
 	    <div class="col-xs-3">
-		    <label class="form-label col-1">游玩日期：</label>
-		    <input type="text" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd 00:00:00'})" class="input-text Wdate" id="usedTime" style="width:120px;">
+		    <button name="btnSearch" id="" class="btn btn-success" type="button" onclick="refreshTable();">搜索</button>
 		</div>
 		</div>
-	</div>
-	<div class="cl pd-5 bg-1 bk-gray mt-20"> 
-		<button name="btnSearch" id="" class="btn btn-success" type="button" onclick="refreshTable();"><i class="iconfont">&#xe665;</i> 搜索</button>
-		<span class="r">共有数据：<strong id="totalRecords"></strong> 条</span> 
 	</div>
 	<div class="mt-20">
 		<table class="table table-border table-bordered table-bg table-hover table-sort">

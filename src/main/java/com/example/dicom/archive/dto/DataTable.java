@@ -5,8 +5,8 @@ import java.util.Collection;
 public class DataTable <T>{
 
     private Collection<T> data;//数据
-    private int recordsFiltered;//得到的记录数
-    private int recordsTotal;//数据库中记录数
+    private long recordsFiltered;//得到的记录数
+    private long recordsTotal;//数据库中记录数
     private int draw; //请求服务器端次数
 	public Collection<T> getData() {
 		return data;
@@ -14,16 +14,16 @@ public class DataTable <T>{
 	public void setData(Collection<T> aaData) {
 		this.data = aaData;
 	}
-	public int getRecordsFiltered() {
+	public long getRecordsFiltered() {
 		return recordsFiltered;
 	}
-	public void setRecordsFiltered(int recordsFiltered) {
+	public void setRecordsFiltered(long recordsFiltered) {
 		this.recordsFiltered = recordsFiltered;
 	}
-	public int getRecordsTotal() {
+	public long getRecordsTotal() {
 		return recordsTotal;
 	}
-	public void setRecordsTotal(int recordsTotal) {
+	public void setRecordsTotal(long recordsTotal) {
 		this.recordsTotal = recordsTotal;
 	}
 	public int getDraw() {

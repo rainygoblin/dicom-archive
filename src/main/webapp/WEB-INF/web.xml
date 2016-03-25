@@ -11,16 +11,21 @@
 		<param-value>classpath:spring/application.xml</param-value>
 	</context-param>
 
-<!-- 在使用时就要加入清理监听器，以便在停止服务时关闭线程池。 -->
-    <listener>
-        <listener-class>com.github.miemiedev.mybatis.paginator.CleanupMybatisPaginatorListener</listener-class>
-    </listener>
-
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
-
+    <!-- Add this to your web.xml to enable "CORS" -->
+	<filter>
+	  <filter-name>cors</filter-name>
+	  <filter-class>com.example.dicom.archive.filter.CORSFilter</filter-class>
+	</filter>
+	  
+	<filter-mapping>
+	  <filter-name>cors</filter-name>
+	  <url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
 	<filter>
 		<filter-name>CharacterEncodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>

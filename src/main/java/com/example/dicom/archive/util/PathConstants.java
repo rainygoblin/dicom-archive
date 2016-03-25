@@ -22,5 +22,9 @@ public interface PathConstants {
 	String PATH_INDEX = "/"+ViewConstants.VIEW_INDEX;
 
 	String PATH_QUERY = "/query";
+
+	String PATH_WADO = "/wado";
+	
+	String PATH_WADO_RS = "/wado-rs";
 	
 }

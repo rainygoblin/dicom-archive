@@ -32,6 +32,8 @@ public class Dcm2JsonTest {
             DicomInputStream dis = new DicomInputStream(new File(DICOM_FILE));
             
             dcm2Json.convert(dis, baos);
+            
+            String s = baos.toString();
            
             String hash = DigestUtils.md5Hex(dis);
             
