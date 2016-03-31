@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+
+<!--suppress ALL -->
+<html class="no-js">
+
+<!--<![endif]-->
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<title>Goblin Example</title>
+
+	<!-- build:css goblin.min.css -->
+	<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../bower_components/cornerstone/dist/cornerstone.min.css">
+	<link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/goblin.css">
+	<!-- /build -->
+
+</head>
+<style>
+
+	/* prevent 'bounce' in scrolling */
+	/*html {*/
+		/*height: 100%;*/
+		/*width: 100%;*/
+		/*overflow: hidden;*/
+	/*}*/
+
+	/*body {*/
+		/*height: 100%;*/
+		/*width: 100%;*/
+		/*overflow: auto;*/
+	/*}*/
+
+	/*.hidden {*/
+		/*display: none;*/
+	/*}*/
+
+	.container {
+		height: 100%;
+		width: 100%;
+		overflow: auto;
+	}
+
+</style>
+<body>
+
+<div class="container">
+
+	<!-- The DICOM Viewer Display-->
+	<div class="row">
+		<div class="viewerContainer" style="height: 700px;overflow:hidden;"/>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-6">
+			This is the demo study load html
+		</div>
+		<div class="col-xs-6">
+			Just for learn js DICOM Viewer
+		</div>
+	</div>
+</div>
+
+<!-- build:js goblin.min.js -->
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../bower_components/hammerjs/hammer.min.js"></script>
+<script src="../bower_components/dicomParser/dist/dicomParser.min.js"></script>
+<script src="../bower_components/cornerstone/dist/cornerstone.min.js"></script>
+<script src="../bower_components/cornerstoneMath/dist/cornerstoneMath.min.js"></script>
+<script src="../bower_components/cornerstoneTools/dist/cornerstoneTools.min.js"></script>
+<script src="../bower_components/cornerstoneWADOImageLoader/dist/cornerstoneWADOImageLoader.min.js"></script>
+<script src="js/goblin.js"></script>
+<script src="js/lib/createStacks.js"></script>
+<script src="js/lib/displayReferenceLines.js"></script>
+<script src="js/lib/draggable.js"></script>
+<script src="js/lib/enablePrefetchOnElement.js"></script>
+<script src="js/lib/encodeQueryData.js"></script>
+<script src="js/lib/exportStudies.js"></script>
+<script src="js/lib/getImageId.js"></script>
+<script src="js/lib/getStudiesMetadata.js"></script>
+<script src="js/lib/getStudyMetadata.js"></script>
+<script src="js/lib/getWADORSImageId.js"></script>
+<script src="js/lib/metaDataProvider.js"></script>
+<script src="js/lib/resizeViewportElements.js"></script>
+<script src="js/lib/setActiveViewport.js"></script>
+<script src="js/lib/setFocusToActiveViewport.js"></script>
+<script src="js/lib/sortStudy.js"></script>
+<script src="js/lib/switchToImageByIndex.js"></script>
+<script src="js/lib/switchToImageRelative.js"></script>
+<script src="js/lib/toggleDialog.js"></script>
+<script src="js/lib/toolManager.js"></script>
+<script src="js/lib/updateAllViewports.js"></script>
+<script src="js/lib/viewportFunctions.js"></script>
+<script src="js/lib/windowManager.js"></script>
+<script src="js/lib/WLPresets.js"></script>
+<script src="js/client/components/viewer/toolbar/toolbar.js"></script>
+<script src="js/client/components/studyBrowser/studyBrowser/studyBrowser.js"></script>
+<script src="js/client/components/viewer/imageViewerViewports/imageViewerViewports.js"></script>
+<script src="js/viewer/viewer.js"></script>
+<!--/build -->
+
+</body>
+</html>

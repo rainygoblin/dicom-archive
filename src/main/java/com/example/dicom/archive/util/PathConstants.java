@@ -27,4 +27,7 @@ public interface PathConstants {
 	
 	String PATH_WADO_RS = "/wado-rs";
 	
+	String PATH_VIEWER = "/"+ViewConstants.VIEW_VIEWER;
+
+	
 }

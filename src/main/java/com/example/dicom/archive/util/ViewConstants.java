@@ -16,5 +16,6 @@ public interface ViewConstants {
 	 */
 	String VIEW_INDEX = "index";
 	String VIEW_UPLOAD = "upload";
+	String VIEW_VIEWER = "viewer";
 
 }

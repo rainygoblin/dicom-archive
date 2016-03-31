@@ -193,6 +193,7 @@ public class StudyRestfulDto {
 			private int rescaleIntercept;
 			private int rescaleSlope;
 			private String sourceImageInstanceUid;
+			private String wadouri;
 			public String getImageType() {
 				return imageType;
 			}
