@@ -1,7 +1,7 @@
 package com.example.dicom.archive.service.impl;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.bson.Document;
 import org.dcm4che3.data.Attributes;
@@ -18,7 +18,6 @@ import com.example.dicom.archive.service.WADORestfulService;
 import com.example.dicom.archive.util.Json2Dcm;
 import com.mongodb.BasicDBObject;
 import com.mongodb.MongoClient;
-import com.mongodb.QueryOperators;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
@@ -44,7 +43,7 @@ public class WADORestfulServiceImpl implements WADORestfulService {
         BasicDBObject queryObject =  new BasicDBObject(TagUtils.toHexString(Tag.StudyInstanceUID)+".Value", studyInstanceUid);
 
 		FindIterable<Document> documents = dicomCollection.find(queryObject);
-        List<String> seriesList = new ArrayList<>();
+        Map<String,StudyRestfulDto.SeriesRestfulDto> seriesMap = new HashMap<>();
         for (Document document :documents) {
     		Json2Dcm json2Dcm = new Json2Dcm();
         	Attributes attributes = null;
@@ -64,10 +63,13 @@ public class WADORestfulServiceImpl implements WADORestfulService {
         	}
         	
         	StudyRestfulDto.SeriesRestfulDto seriesRestfulDto = buildSeriesFrom(attributes);
-        	if(!seriesList.contains(seriesRestfulDto.getSeriesInstanceUid())){
-        		seriesList.add(seriesRestfulDto.getSeriesInstanceUid());
+        	if(!seriesMap.containsKey(seriesRestfulDto.getSeriesInstanceUid())){
+        		seriesMap.put(seriesRestfulDto.getSeriesInstanceUid(), seriesRestfulDto);
         		result.getSeriesList().add(seriesRestfulDto);
+        	}else{
+        		seriesRestfulDto = seriesMap.get(seriesRestfulDto.getSeriesInstanceUid());
         	}
+        	
         	StudyRestfulDto.SeriesRestfulDto.InstanceRestfulDto instanceRestfulDto = buildInstanceFrom(attributes);
         	seriesRestfulDto.getInstances().add(instanceRestfulDto);
         }  

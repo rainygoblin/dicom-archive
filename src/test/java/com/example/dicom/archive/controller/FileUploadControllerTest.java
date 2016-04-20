@@ -54,4 +54,14 @@ public class FileUploadControllerTest extends AbstractJUnit4SpringContextTests{
 		.andDo(print());
 	}
 	
+	@Test
+	public void testMultiUploadFiles() throws Exception {
+		File dcmDir = new File("src/test/resources/dicoms/MR/");
+		for(File dcmFile:dcmDir.listFiles()){
+			MockMultipartFile dicom1File = new MockMultipartFile("dicom", dcmFile.getName(), "application/dicom", FileUtils.readFileToByteArray(dcmFile));
+			mockMvc.perform(fileUpload(PathConstants.PATH_UPLOAD).file(dicom1File))
+			.andExpect(status().isOk())
+			.andDo(print());
+		}
+	}
 }
